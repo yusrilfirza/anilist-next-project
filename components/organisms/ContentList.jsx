@@ -17,7 +17,7 @@ export const ContentList = ({ data, loading }) => {
                 loading ? (
                     <Skeleton
                         containerClassName="skeleton-container"
-                        count={3}
+                        count={5}
                         height="400px"
                         width="230px"
                         wrapper={({children}) => <div>{children}</div>}
