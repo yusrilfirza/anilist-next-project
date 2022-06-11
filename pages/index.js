@@ -29,20 +29,22 @@ export default function Home() {
             title="Anime list"
         />
         <ContentList data={list.data === undefined ? [] : list.data.Page.media} loading={list.loading} />
-        <ReactPaginate
-            breakLabel="..."
-            nextLabel="next"
-            onPageChange={e => setPageDetail({ ...pageDetail, page: e.selected + 1 })}
-            pageRangeDisplayed={5}
-            marginPagesDisplayed={2}
-            pageCount={500}
-            initialPage={pageDetail.page - 1}
-            breakClassName={'break-me'}
-            activeClassName={'active'}
-            containerClassName={'pagination'}
-            previousLabel="previous"
-            renderOnZeroPageCount={null}
-        />
+        <div style={{ display: 'flex', justifyContent: 'center', width: "100%" }}>
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next"
+                onPageChange={e => setPageDetail({ ...pageDetail, page: e.selected + 1 })}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={2}
+                pageCount={500}
+                initialPage={pageDetail.page - 1}
+                breakClassName={'break-me'}
+                activeClassName={'active'}
+                containerClassName={'pagination'}
+                previousLabel="previous"
+                renderOnZeroPageCount={null}
+            />
+        </div>
     </div>
     )
 }

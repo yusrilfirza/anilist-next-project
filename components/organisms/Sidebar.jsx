@@ -17,7 +17,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const SidebarHeader = styled.div`
-    padding: 25px 30px 25px 30px;
+    padding: 20px;
     background-color: #0e0e0e;
     height: auto;
     margin-bottom: 10px;
@@ -57,12 +57,12 @@ const IconWrapper = styled.div`
 const menu = [
     {
         title: 'Home',
-        path: '/',
+        path: '',
         icon: faHouse
     },
     {
         title: 'Collections',
-        path: '/collections',
+        path: 'collections',
         icon: faBookmark
     },
 ]

@@ -22,10 +22,14 @@ a {
 }
 
 .pagination li:not(.break-me) {
-    background-color: white;
+    background-color: #202020;
     padding: 10px;
     border-radius: 5px;
-    color: #fcca14;
+    color: #ffffff;
+}
+
+.pagination li:not(.break-me):hover {
+    background-color: #393939;
 }
 
 .pagination li:not(.active) {
@@ -33,7 +37,7 @@ a {
 }
 
 .pagination .active {
-    background-color: #f9e394 !important;
+    background-color: #0e0e0e !important;
     color: white !important;
 }
 
@@ -45,4 +49,22 @@ a {
 .skeleton-container {
     display: flex;
     gap: 20px;
+}
+
+button {
+    background-color: #15b0df;
+    padding: 7px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #14a4d0;
+    box-shadow: inset #0e0e0e09;
+}
+
+button:focus {
+    background-color: #0d94be;
 }
