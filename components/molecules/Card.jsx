@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Label } from '../atoms';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled'
 
 const CardWrapper = styled.div`
@@ -19,7 +21,8 @@ const CardWrapper = styled.div`
         border-bottom: solid 4px #ffffff;
     }
     &:hover #button_${prop => prop.id} {
-        display: block;
+        display: flex;
+        bottom: 95px;
     }
 `;
 
@@ -40,31 +43,46 @@ const CardInfo = styled.div`
 `;
 
 const AddButton = styled.button`
+    border-radius: 100%;
     display: none;
     position: absolute;
+    align-items: center;
+    justify-content: center;
     z-index: 2;
-    bottom: 85px;
-    width: 75%;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
     margin-right: auto;
-    margin-left: 15px;
+    margin-left: 140px;
+    animation: fadeIn 0.5s;
+    @keyframes fadeIn{
+        0% {
+            opacity: 0;
+            bottom: 70px;
+        }
+        100% {
+            opacity: 1;
+            bottom: 95px;
+        }
+    };
 `;
 
 export const Card = ({ id, title, cover, seasonYear, color }) => {
     const router = useRouter();
 
     const handleClick = (e) => {
-        const target = e.target.id.split('_');
-        if (target[0] !== 'button') {
+        const target = e.target.tagName;
+        if (target === 'DIV') {
             router.push(`${id}`);
         } else {
-            console.log('tes')
+            console.log('tes');
         }
     };
 
     return(
         <CardWrapper onClick={handleClick} id={id}>
             <AddButton id={`button_${id}`}>
-                Add to collection
+                <FontAwesomeIcon size='xs' icon={faAdd} />
             </AddButton>
             <ImageWrapper src={cover} />
             <CardInfo color={color}>

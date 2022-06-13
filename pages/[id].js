@@ -1,3 +1,3 @@
 export default function Detail () {
-    return (<div>Tes</div>)
+    return (<div>Under construction</div>)
 }

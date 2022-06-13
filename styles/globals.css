@@ -52,19 +52,12 @@ a {
 }
 
 button {
-    background-color: #15b0df;
-    padding: 7px;
-    border: none;
-    border-radius: 7px;
-    color: white;
     cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform .3s;
 }
 
 button:hover {
-    background-color: #14a4d0;
-    box-shadow: inset #0e0e0e09;
-}
-
-button:focus {
-    background-color: #0d94be;
+    transform: scale(1.1);
 }
