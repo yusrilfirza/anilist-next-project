@@ -2,7 +2,7 @@ import Head from "next/head";
 import { ApolloProvider } from "@apollo/client";
 import styled from '@emotion/styled';
 import { requestAdapter } from "../services/requestAdapter";
-import { Sidebar } from '../components/organisms';
+import { Footer, Sidebar } from '../components/organisms';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '../styles/globals.css'
 
@@ -13,13 +13,17 @@ const MainWrapper = styled.main`
 `;
 
 const ContentWrapper = styled.div`
-    overflow-y: auto;
-    height: 100%;
     width: 100%;
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+`;
+
+const FooterWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
 `;
 
 function MyApp({ Component, pageProps }) {
@@ -32,9 +36,12 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <MainWrapper>
             <Sidebar />
-            <ContentWrapper>
-                <Component {...pageProps} />
-            </ContentWrapper>
+            <FooterWrapper>
+                <ContentWrapper>
+                    <Component {...pageProps} />
+                </ContentWrapper>
+                <Footer />
+            </FooterWrapper>
         </MainWrapper>
     </ApolloProvider>
     )
