@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Label } from '../atoms';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled'
+import { addCollection } from '../../services/webStorageAdapter';
 
 const CardWrapper = styled.div`
     position: relative;
@@ -65,6 +65,11 @@ const AddButton = styled.button`
             bottom: 95px;
         }
     };
+    &:focus {
+        transform: scale(2);
+        transition: all 0.4s linear;
+        opacity: 0;
+    }
 `;
 
 export const Card = ({ id, title, cover, seasonYear, color }) => {
@@ -75,7 +80,7 @@ export const Card = ({ id, title, cover, seasonYear, color }) => {
         if (target === 'DIV') {
             router.push(`${id}`);
         } else {
-            console.log('tes');
+            addCollection(id);
         }
     };
 

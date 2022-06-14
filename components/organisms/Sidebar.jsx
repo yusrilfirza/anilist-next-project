@@ -34,16 +34,13 @@ const SidebarMenu = styled.div`
     background-color: ${prop => prop.active ? '#1c1c1c' : '#0e0e0e'};
     &:hover {
         background-color: #202020;
-        > h1 {
-            color: #FFD542;
-        }
     }
 `;
 
 const ActiveIndicator = styled.div`
     height: 100%;
     width: 10px;
-    background-color: #444444;
+    background-color: #666666;
     position: absolute;
     border-radius: 10px 0px 0px 10px;
     right: 0;
@@ -57,18 +54,19 @@ const IconWrapper = styled.div`
 const menu = [
     {
         title: 'Home',
-        path: '',
+        path: '/',
         icon: faHouse
     },
     {
         title: 'Collections',
-        path: 'collections',
+        path: '/collections',
         icon: faBookmark
     },
 ]
 
 export const Sidebar = () => {
     const path = useRouter().pathname;
+    console.log(path);
     return (
         <SidebarWrapper>
             <SidebarHeader>

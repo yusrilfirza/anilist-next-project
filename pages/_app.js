@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { ApolloProvider } from "@apollo/client";
 import styled from '@emotion/styled';
+import { ToastContainer } from 'react-toastify';
 import { requestAdapter } from "../services/requestAdapter";
 import { Footer, Sidebar } from '../components/organisms';
 import 'react-loading-skeleton/dist/skeleton.css';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.css'
 
 const MainWrapper = styled.main`
@@ -39,6 +41,17 @@ function MyApp({ Component, pageProps }) {
             <FooterWrapper>
                 <ContentWrapper>
                     <Component {...pageProps} />
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
                 </ContentWrapper>
                 <Footer />
             </FooterWrapper>
