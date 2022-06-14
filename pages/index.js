@@ -6,7 +6,6 @@ import { PageTitle } from '../components/molecules';
 import { GET_ANIME_LIST, GET_POPULAR_ANIME_LIST } from '../services/query';
 
 export default function Home() {
-    const [contentData, setContentData] = useState({ popular: [], list: [] });
     const [pageDetail, setPageDetail] = useState({ page: 1, perPage: 10 });
     const list = useQuery(GET_ANIME_LIST,
         {

@@ -66,7 +66,6 @@ const menu = [
 
 export const Sidebar = () => {
     const path = useRouter().pathname;
-    console.log(path);
     return (
         <SidebarWrapper>
             <SidebarHeader>

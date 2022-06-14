@@ -92,7 +92,7 @@ export const Card = ({ id, title, cover, seasonYear, color }) => {
             <ImageWrapper src={cover} />
             <CardInfo color={color}>
                 <Label text={title} size="l" type="bold" />
-                <Label text={seasonYear} size="m" color="black" />
+                <Label text={`${seasonYear}`} size="m" color="black" />
             </CardInfo>
         </CardWrapper>
     );
