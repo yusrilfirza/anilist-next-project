@@ -4,7 +4,7 @@ import { Label } from './Label';
 import styled from '@emotion/styled';
 
 const BadgeWrapper = styled.div`
-    background-color: ${prop => prop.badgeColor};
+    background-color: ${prop => prop.badgeColor !== null ? prop.badgeColor : '#dddddd' };
     border-radius: 20px;
     padding: 5px 15px 5px 15px;
 `;

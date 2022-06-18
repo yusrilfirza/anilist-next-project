@@ -40,12 +40,24 @@ export const GET_ANIME_COLLECTION_LIST = gql`
             media (id_in: $id_in, type: ANIME) {
                 id
                 source
+                season
+                description
                 seasonYear
                 coverImage {
                     large
                     color
                 }
+                nextAiringEpisode {
+                    id
+                    airingAt
+                    timeUntilAiring
+                    episode
+                    mediaId
+                }
                 genres
+                updatedAt
+                averageScore
+                favourites
                 title {
                     romaji
                 }

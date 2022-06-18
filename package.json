@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ./components/** ./pages/** -c .eslintrc.json --ext js,jsx"
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",
@@ -16,6 +16,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "date-fns": "^2.28.0",
+    "eslint-plugin-react": "^7.28.0",
     "graphql": "^16.5.0",
     "next": "^12.1.6",
     "react": "18.1.0",
@@ -27,8 +29,15 @@
     "react-tooltip": "^4.2.21"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
     "@emotion/css": "^11.9.0",
-    "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }

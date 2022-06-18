@@ -3,10 +3,8 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Icons, Label } from '../atoms';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faHouse} from '@fortawesome/free-solid-svg-icons';
-import { WebTitle } from '../molecules';
 
 const SidebarWrapper = styled.div`
     bottom: 0;
@@ -73,7 +71,7 @@ export const Sidebar = () => {
             </SidebarHeader>
             {
                 menu.map((el) => (
-                    <Link key={el.title} href={`/${el.path}`}>
+                    <Link key={el.title} href={`${el.path}`}>
                         <SidebarMenu active={el.path === path}>
                             {
                                 el.path === path ? (<ActiveIndicator />) : null

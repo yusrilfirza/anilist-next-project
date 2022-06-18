@@ -17,12 +17,15 @@ const CardWrapper = styled.div`
     cursor: pointer;
     padding: 15px;
     &:hover {
-        background-color: #d4d4d4;
+        background-color: #e7e7e7;
         border-bottom: solid 4px #ffffff;
     }
     &:hover #button_${prop => prop.id} {
         display: flex;
         bottom: 95px;
+    }
+    &:hover > div > h1 {
+        color: ${prop => prop.color};
     }
 `;
 
@@ -85,12 +88,12 @@ export const Card = ({ id, title, cover, seasonYear, color }) => {
     };
 
     return(
-        <CardWrapper onClick={handleClick} id={id}>
+        <CardWrapper onClick={handleClick} id={id} color={color}>
             <AddButton id={`button_${id}`}>
                 <FontAwesomeIcon size='xs' icon={faAdd} />
             </AddButton>
             <ImageWrapper src={cover} />
-            <CardInfo color={color}>
+            <CardInfo>
                 <Label text={title} size="l" type="bold" />
                 <Label text={`${seasonYear}`} size="m" color="black" />
             </CardInfo>

@@ -20,3 +20,10 @@ export const addCollection = (id) => {
     window.localStorage.setItem('collection', JSON.stringify({ collections_id: data }));
     return toast.success('Successfully added to collection.');
 }
+
+export const removeCollection = (id) => {
+    var storage = JSON.parse(window.localStorage.getItem('collection'));
+    var { collections_id: collections } = storage;
+    window.localStorage.setItem('collection', JSON.stringify({ collections_id: collections.filter((el) => el !== id) }));
+    return toast.success('Successfully deleted from collection.');
+}
