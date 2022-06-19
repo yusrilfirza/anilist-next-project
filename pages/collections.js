@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client";
+import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 import { PageTitle } from '../components/molecules';
 import { GET_ANIME_COLLECTION_LIST } from '../services/query';
-import styled from '@emotion/styled';
 import { DetailedCard } from '../components/molecules/DetailedCard';
+import { removeCollection } from '../services/webStorageAdapter';
+import Skeleton from 'react-loading-skeleton';
 
 const ListWrapper = styled.div`
     display: flex;
@@ -12,6 +15,7 @@ const ListWrapper = styled.div`
 `;
 
 export const Collection = () => {
+    const router = useRouter();
     const [collections, setCollections] = useState([]);
     const [pageDetail, setPageDetail] = useState({ page: 1, perPage: 10 });
     
@@ -30,6 +34,16 @@ export const Collection = () => {
         }
     );
 
+    const onRemove = (id) => {
+        removeCollection(id);
+        const { collections_id } = JSON.parse(window.localStorage.getItem('collection'));
+        setCollections(collections_id);
+    };
+
+    const onDetail = (id) => {
+        router.push(`${id}`);
+    };
+
     return (
         <div>
             <PageTitle
@@ -37,7 +51,12 @@ export const Collection = () => {
             />
             <ListWrapper>
                 {
-                    !loading && data !== undefined && data.Page.media.map((item) => (
+                    loading ?
+                    <Skeleton
+                        count={3}
+                        height="400px"
+                        width="100%"
+                    /> : data !== undefined ? data.Page.media.map((item) => (
                         <DetailedCard
                             key={item.id}
                             loading={loading}
@@ -52,8 +71,10 @@ export const Collection = () => {
                             description={item.description}
                             average={item.averageScore}
                             favourites={item.favourites}
+                            onRemove={onRemove}
+                            onDetail={onDetail}
                         />
-                    ))
+                    )) : null
                 }
             </ListWrapper>
         </div>

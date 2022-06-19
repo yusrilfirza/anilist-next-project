@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { getDiffFromNow } from '../../helpers/time-calculation';
 import { Badge, Label, Button } from '../atoms';
-import { useRouter } from 'next/router';
-import { removeCollection } from '../../services/webStorageAdapter';
 
 const CardWrapper = styled.div`
     display: flex;
@@ -55,10 +53,9 @@ const Circle = styled.div`
 `;
 
 export const DetailedCard = (props) => {
-    const router = useRouter();
     const {
         id, title, cover, seasonYear, color, airing, season, genres,
-        average, favourites
+        average, favourites, onRemove, onDetail
     } = props;
     return (
         <CardWrapper>
@@ -105,7 +102,7 @@ export const DetailedCard = (props) => {
                             </div>
                         }
                         color="danger"
-                        onClick={() => removeCollection(id)}
+                        onClick={() => onRemove(id)}
                     />
                     <Button
                         label={
@@ -115,7 +112,7 @@ export const DetailedCard = (props) => {
                             </div>
                         }
                         color="primary"
-                        onClick={() => router.push(`${id}`)}
+                        onClick={() => onDetail(id)}
                     />
                 </div>
             </div>
