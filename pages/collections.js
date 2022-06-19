@@ -44,6 +44,8 @@ export const Collection = () => {
         router.push(`${id}`);
     };
 
+    console.log(data);
+
     return (
         <div>
             <PageTitle
@@ -56,7 +58,7 @@ export const Collection = () => {
                         count={3}
                         height="400px"
                         width="100%"
-                    /> : data !== undefined ? data.Page.media.map((item) => (
+                    /> : data !== undefined && data.Page.media.length > 0 ? data.Page.media.map((item) => (
                         <DetailedCard
                             key={item.id}
                             loading={loading}
@@ -74,7 +76,7 @@ export const Collection = () => {
                             onRemove={onRemove}
                             onDetail={onDetail}
                         />
-                    )) : null
+                    )) : <span>No data</span>
                 }
             </ListWrapper>
         </div>
